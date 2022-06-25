@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8584807954938494730}
   - component: {fileID: 2451709523042011736}
-  m_Layer: 0
-  m_Name: Arrow
+  m_Layer: 3
+  m_Name: ArrowAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb484ca2f43d3540bf5500fe1a6a303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 1
+  _damage: 1
   _attackInterval: 1
   _arrowPrefab: {fileID: 5618119296797850444, guid: a1c25f140a337b54eb4baddab6d1d6a8, type: 3}
   _arrowSpeed: 5
@@ -59,8 +59,8 @@ GameObject:
   - component: {fileID: 6484523115371143673}
   - component: {fileID: 7215898476404905044}
   - component: {fileID: 5245463539566647783}
-  m_Layer: 0
-  m_Name: Sword
+  m_Layer: 3
+  m_Name: SwordAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d1628fb33c9484886cd9be932a7e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 1
+  _damage: 1
   _attackInterval: 0
   _swordAnimator: {fileID: 7215898476404905044}
 --- !u!1 &529011071861326487
@@ -127,8 +127,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4560575251003093381}
   - component: {fileID: 2555599146307055265}
-  m_Layer: 0
-  m_Name: weapon_knight_sword
+  - component: {fileID: 2013456887788877922}
+  - component: {fileID: 7355772415403279474}
+  m_Layer: 7
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,6 +203,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2013456887788877922
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529011071861326487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008752674, y: 0.21054268}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.625, y: 1.8125}
+    newSize: {x: 0.625, y: 1.8125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24571699, y: 1.2747116}
+  m_EdgeRadius: 0
+--- !u!114 &7355772415403279474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529011071861326487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6a43e2e7b3b394fb070d03a8bcc10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _swordAttCtrlr: {fileID: 5245463539566647783}
 --- !u!1 &802076023331791653
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,8 +253,8 @@ GameObject:
   - component: {fileID: 4706538994634378524}
   - component: {fileID: 8618417732827463682}
   - component: {fileID: 1694361894971216472}
-  m_Layer: 0
-  m_Name: Spear
+  m_Layer: 3
+  m_Name: SpearAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0d23e3022f30d42b5281d035c792b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDamage: 1
+  _damage: 1
   _attackInterval: 2
   _playerEntity: {fileID: 5338550370897523403}
   _spearAnimator: {fileID: 8618417732827463682}
@@ -280,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5784093034866963089}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,8 +357,9 @@ GameObject:
   - component: {fileID: 5934495649227355430}
   - component: {fileID: 8262822503775895089}
   - component: {fileID: 8280231390417120776}
-  m_Layer: 0
-  m_Name: weapon_spear
+  - component: {fileID: 4440829096889906946}
+  m_Layer: 7
+  m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +445,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5293888}
+  m_Offset: {x: 0, y: 0.42792097}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -414,8 +456,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.375, y: 0.8162224}
+  m_Size: {x: 0.375, y: 1.0191581}
   m_EdgeRadius: 0
+--- !u!114 &4440829096889906946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392216563790508348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186569769b9daef4990b08d13b02a666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spearAttCtrlr: {fileID: 1694361894971216472}
 --- !u!1 &5338550370897523404
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,12 +480,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5338550370897523405}
-  - component: {fileID: 5338550370897523402}
   - component: {fileID: 5338550370897523403}
-  - component: {fileID: 8178127436778282295}
+  - component: {fileID: 956237476541362982}
+  - component: {fileID: 6560979386909588645}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,7 +507,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5338550370897523402
+--- !u!114 &5338550370897523403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338550370897523404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374125426c2c55149a7f3fffee6c1df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 1
+--- !u!114 &956237476541362982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -467,19 +535,7 @@ MonoBehaviour:
   _player: {fileID: 5338550370897523403}
   _moveSpeed: 100
   _spriteRenderer: {fileID: 5338550371141689066}
---- !u!114 &5338550370897523403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338550370897523404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 374125426c2c55149a7f3fffee6c1df7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!50 &8178127436778282295
+--- !u!50 &6560979386909588645
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

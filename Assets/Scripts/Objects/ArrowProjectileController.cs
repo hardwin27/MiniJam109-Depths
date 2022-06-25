@@ -26,13 +26,31 @@ public class ArrowProjectileController : MonoBehaviour
         MoveRotationHandler();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("TEST");
         Transform collTransform = collision.transform;
         if (collTransform = _targetTransform)
         {
+            print("TEST1");
+            print(collision.gameObject);
+            if (collision.gameObject.TryGetComponent(out Rigidbody2D enemyBody))
+            {
+                print("TEST2");
+                if (enemyBody.TryGetComponent(out EnemyEntity enemyEntity))
+                {
+                    print("TEST3");
+                    DamageEnemy(enemyEntity);
+                }
+            }
+
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 
     public void SetProjectileData(Transform targetTransform, float speed, float damage)
@@ -46,7 +64,7 @@ public class ArrowProjectileController : MonoBehaviour
     {
         if (_targetTransform == null)
         {
-            _moveDirection = Vector2.zero;
+            Destroy(gameObject);
         }
         else
         {
@@ -73,5 +91,11 @@ public class ArrowProjectileController : MonoBehaviour
     {
         _moveDirection = _moveDirection.normalized;
         _body.MovePosition((Vector2)transform.position + (_moveDirection * _speed * Time.fixedDeltaTime));
+    }
+
+    private void DamageEnemy(EnemyEntity enemy)
+    {
+        enemy.TakingDamage(_damage);
+        print(_damage);
     }
 }

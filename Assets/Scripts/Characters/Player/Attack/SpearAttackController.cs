@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordAttackController : BaseAttackController
+public class SpearAttackController : BaseAttackController
 {
-    [SerializeField] private Animator _swordAnimator;
-
+    [SerializeField] private PlayerEntity _playerEntity;
+    [SerializeField] private Animator _spearAnimator;
+    public float Damage { get { return _damage; } }
+    
     protected override void Start()
     {
         base.Start();
@@ -14,6 +16,7 @@ public class SwordAttackController : BaseAttackController
     protected override void Update()
     {
         base.Update();
+        SpearDirectionHandler();
     }
 
     protected override void ExecuteAttack()
@@ -34,6 +37,17 @@ public class SwordAttackController : BaseAttackController
 
     private void StartAnimation()
     {
-        _swordAnimator.Play("SwordAttack");
+        _spearAnimator.Play("SpearAttack");
+        print("TEST");
+    }
+
+    private void SpearDirectionHandler()
+    {
+        Vector2 direction = _playerEntity.Direction;
+        if (direction == Vector2.zero)
+        {
+            return;
+        }
+        transform.right = direction;
     }
 }

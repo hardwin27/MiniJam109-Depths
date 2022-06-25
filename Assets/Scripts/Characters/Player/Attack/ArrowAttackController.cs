@@ -42,7 +42,7 @@ public class ArrowAttackController : BaseAttackController
         }
 
         GameObject arrowProjectile = Instantiate(_arrowPrefab, transform.position, transform.rotation);
-        arrowProjectile.GetComponent<ArrowProjectileController>().SetProjectileData(targetedEnemy, _arrowSpeed, _attackDamage);
+        arrowProjectile.GetComponent<ArrowProjectileController>().SetProjectileData(targetedEnemy, _arrowSpeed, _damage);
 
     }
 

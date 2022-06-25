@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseAttackController : MonoBehaviour
 {
-    [SerializeField] protected float _attackDamage;
+    [SerializeField] protected float _damage;
     [SerializeField] protected float _attackInterval;
     protected float _attackTimer = 0f;
     protected bool _isAttackOnInterval = false;

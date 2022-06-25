@@ -6,7 +6,7 @@ public class PlayerMoveController : MonoBehaviour
 {
     [SerializeField] private PlayerEntity _player;
     private Rigidbody2D _body;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed = 100f;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     private bool _isInitiallyFaceLeft;
     private Vector2 _moveDirection;
