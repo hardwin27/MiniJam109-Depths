@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMoveController : MonoBehaviour
 {
+    [SerializeField] private PlayerEntity _player;
     private Rigidbody2D _body;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -17,7 +18,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Start()
     {
-        
+        InitialFaceDirectionHandler();
     }
 
     private void Update()
@@ -42,23 +43,24 @@ public class PlayerMovementController : MonoBehaviour
         float verticalMove = Input.GetAxisRaw("Vertical");
 
         _moveDirection = new Vector2(horizontalMove, verticalMove);
+        _moveDirection = _moveDirection.normalized;
+        _player.Direction = _moveDirection;
     }
 
     private void SpriteDirectionHandler()
     {
         if (_moveDirection.x > 0)
         {
-            _spriteRenderer.flipX = _isInitiallyFaceLeft;
+            _spriteRenderer.flipX = !_isInitiallyFaceLeft;
         }
         else if (_moveDirection.x < 0)
         {
-            _spriteRenderer.flipX = !_isInitiallyFaceLeft;
+            _spriteRenderer.flipX = _isInitiallyFaceLeft;
         }
     }
 
     private void MoveHander()
     {
-        _moveDirection = _moveDirection.normalized;
         _body.velocity = _moveDirection * _moveSpeed * Time.fixedDeltaTime;
     }
 }

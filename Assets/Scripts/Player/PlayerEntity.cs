@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
+    private Vector2 _direction;
+
+    public Vector2 Direction
+    {
+        set
+        {
+            _direction = value;
+        }
+        get
+        {
+            return _direction;
+        }
+    }
+
     private void Start()
     {
         AssignToGameManager();
