@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMoveController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    private float _moveSpeed = 0.5f;
+    private float _moveSpeed = 0.25f;
     private Rigidbody2D _body;
     private Vector2 _moveDirection = new Vector2(0f, 0f);
     private bool _isInitiallyFaceLeft;
