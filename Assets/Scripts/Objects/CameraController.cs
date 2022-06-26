@@ -7,6 +7,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
     private Vector2 _cameraOffset = new Vector2(0f, 0f);
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Update()
     {
         CameraFollowHandler();

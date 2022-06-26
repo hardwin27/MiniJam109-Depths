@@ -29,4 +29,9 @@ public class GameManager : MonoBehaviour
             return _playerTransform;
         }
     }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }

@@ -18,6 +18,11 @@ public class PlayerEntity : CharacterEntity
         }
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         AssignToGameManager();
