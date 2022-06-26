@@ -38,7 +38,6 @@ public class SpearAttackController : BaseAttackController
     private void StartAnimation()
     {
         _spearAnimator.Play("SpearAttack");
-        print("TEST");
     }
 
     private void SpearDirectionHandler()

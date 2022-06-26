@@ -28,22 +28,16 @@ public class ArrowProjectileController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("TEST");
-        Transform collTransform = collision.transform;
-        if (collTransform = _targetTransform)
+        Transform collParentTransform = collision.transform.parent;
+        if (collParentTransform == _targetTransform)
         {
-            print("TEST1");
-            print(collision.gameObject);
-            if (collision.gameObject.TryGetComponent(out Rigidbody2D enemyBody))
+            if (collParentTransform.gameObject.TryGetComponent(out Rigidbody2D enemyBody))
             {
-                print("TEST2");
                 if (enemyBody.TryGetComponent(out EnemyEntity enemyEntity))
                 {
-                    print("TEST3");
                     DamageEnemy(enemyEntity);
                 }
             }
-
             Destroy(gameObject);
         }
     }
@@ -96,6 +90,5 @@ public class ArrowProjectileController : MonoBehaviour
     private void DamageEnemy(EnemyEntity enemy)
     {
         enemy.TakingDamage(_damage);
-        print(_damage);
     }
 }

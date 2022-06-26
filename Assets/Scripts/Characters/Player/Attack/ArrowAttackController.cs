@@ -51,7 +51,7 @@ public class ArrowAttackController : BaseAttackController
         Collider2D collider = Physics2D.OverlapCircle(transform.position, 5f, 1 << LayerMask.NameToLayer("Enemy"));
         if (collider != null)
         {
-            return collider.transform;
+            return collider.transform.parent;
         }
 
         return null;

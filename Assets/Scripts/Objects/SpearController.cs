@@ -6,10 +6,10 @@ public class SpearController : MonoBehaviour
 {
     [SerializeField] private SpearAttackController _spearAttCtrlr;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Transform collTransform = collision.transform;
-        if (collision.gameObject.TryGetComponent(out Rigidbody2D enemyBody))
+        Transform collParentTransform = collision.transform.parent;
+        if (collParentTransform.gameObject.TryGetComponent(out Rigidbody2D enemyBody))
         {
             if (enemyBody.TryGetComponent(out EnemyEntity enemyEntity))
             {
